@@ -1,1 +1,2 @@
-# durnezg.github.io
+# Personal portfolio site
+Gilles Durnez
