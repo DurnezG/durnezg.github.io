@@ -101,13 +101,13 @@ window.addEventListener('resize', () =>
 });
 
 // Smooth scroll
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
+  });
 });
 
 // Parallax effect
