@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durnez Gilles | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="nebula"></div>
+    <canvas id="particles"></canvas>
+
+    <header>
+        <nav>
+            <h1>Durnez Gilles</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills & Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="intro">
+            <h2>Hi, I'm Gilles Durnez</h2>
+            <p>Game Developer | Programmer | Electronics | Tech Enthusiast</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+
+            <a href="another-project.html" class="project-card">
+                <div class="project-image">
+                    <img src="" alt="Project Image">
+                    <div class="status-badge active">Active</div>
+                </div>
+                <div class="project-info">
+                    <h3>Another Project</h3>
+                    <p>Description.</p>
+                </div>
+            </a>
+            <!-- Example Project Card -->
+            <a href="pages/floppybirds.html" class="project-card">
+                <div class="project-image">
+                    <img src="assets/Images/FloppyBirds.png" alt="Project Image">
+                    <div class="status-badge finished">finished</div>
+                    <!-- Use class "inactive" if project is not active -->
+                </div>
+                <div class="project-info">
+                    <h3>FloppyBirds</h3>
+                    <p>Our take at a 4-player flappy bird game made only in assembly for the Nintendo NES hardware.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Tools</h2>
+
+        <!-- Spoken Languages -->
+        <div class="skill-category">
+            <h3>Spoken Languages</h3>
+            <div class="language-cards">
+                <div class="language-card">
+                    <span>Dutch</span>
+                    <div class="progress-row">
+                        <label>Speech:</label>
+                        <progress value="90" max="100"></progress>
+                    </div>
+                    <div class="progress-row">
+                        <label>Writing:</label>
+                        <progress value="80" max="100"></progress>
+                    </div>
+                    <div class="progress-row">
+                        <label>Understanding:</label>
+                        <progress value="95" max="100"></progress>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <span>English</span>
+                    <div class="progress-row">
+                        <label>Speech:</label>
+                        <progress value="80" max="100"></progress>
+                    </div>
+                    <div class="progress-row">
+                        <label>Writing:</label>
+                        <progress value="70" max="100"></progress>
+                    </div>
+                    <div class="progress-row">
+                        <label>Understanding:</label>
+                        <progress value="85" max="100"></progress>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <span>French</span>
+                    <div class="progress-row">
+                        <label>Speech:</label>
+                        <progress value="45" max="100"></progress>
+                    </div>
+                    <div class="progress-row">
+                        <label>Writing:</label>
+                        <progress value="30" max="100"></progress>
+                    </div>
+                    <div class="progress-row">
+                        <label>Understanding:</label>
+                        <progress value="50" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programming Languages -->
+        <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-cards">
+            <div class="skill-card">
+                <img src="https://devicon-website.vercel.app/api/c/original.svg" alt="C">
+                <span>C</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                <span>C++</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#">
+                <span>C#</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+                <span>Python</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg" alt="Lua">
+                <span>Lua</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML">
+                <span>HTML/CSS/JS</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- Game Engines -->
+        <div class="skill-category">
+            <h3>Game Engines</h3>
+            <div class="skill-cards">
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" alt="Unity"><span>Unity</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unrealengine.svg" alt="Unreal Engine"><span>Unreal Engine</span></div>
+            <div class="skill-card"><img src="https://www.svgrepo.com/show/500761/ampersand.svg" alt="S&Box"><span>S&Box</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/roblox.svg" alt="Roblox Studio"><span>Roblox Studio</span></div>
+            </div>
+        </div>
+
+        <!-- Frameworks / APIs / Libraries -->
+        <div class="skill-category">
+            <h3>Frameworks / APIs / Libraries</h3>
+                <div class="skill-cards">
+                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vulkan.svg" alt="Vulkan"><span>Vulkan</span></div>
+                <div class="skill-card"><img src="https://static.cdnlogo.com/logos/w/47/windows-xp.svg" alt="DirectX 11"><span>DirectX 11</span></div>
+                <div class="skill-card"><img src="https://www.svgrepo.com/show/340386/gui.svg" alt="Dear ImGui"><span>Dear ImGui</span></div>
+                <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sdl/sdl-plain.svg" alt="SDL"><span>SDL</span></div>
+                <div class="skill-card"><img src="https://www.svgrepo.com/show/533343/window.svg" alt="GLFW"><span>GLFW</span></div>
+                <div class="skill-card"><img src="https://www.svgrepo.com/show/382092/graph-infographic-data-matrix-element.svg" alt="GLM"><span>GLM</span></div>
+                <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-plain.svg" alt="ANGULAR"><span>Angular</span></div>
+            </div>
+        </div>
+
+        <!-- Version Control -->
+        <div class="skill-category">
+            <h3>Version Control</h3>
+            <div class="skill-cards">
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" alt="Git">
+                <span>Git</span>
+                <small>GitHub, Gitea, Bitbucket</small>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/perforce.svg" alt="Perforce">
+                <span>Perforce</span>
+                <small>Helix Core</small>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/subversion.svg" alt="SVN">
+                <span>SVN</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- 3D Software -->
+        <div class="skill-category">
+            <h3>3D Software</h3>
+            <div class="skill-cards">
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/blender.svg" alt="Blender"><span>Blender</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/siemens.svg" alt="Solid Edge"><span>Solid Edge</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/siemens.svg" alt="Siemens NX"><span>Siemens NX</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg" alt="Fusion 360"><span>Fusion 360</span></div>
+            </div>
+        </div>
+
+        <!-- Other Tools -->
+        <div class="skill-category">
+            <h3>Other Tools</h3>
+            <div class="skill-cards">
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudio.svg" alt="Visual Studio"><span>Visual Studio</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg" alt="VS Code"><span>VS Code</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cmake.svg" alt="CMake"><span>CMake</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobephotoshop.svg" alt="Photoshop"><span>Photoshop</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg" alt="Eagle"><span>Eagle</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/multisim.svg" alt="Multisim"><span>Multisim</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/ltspice.svg" alt="LT Spice"><span>LT Spice</span></div>
+            <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/stmicroelectronics.svg" alt="CUBE MX"><span>CUBE MX</span></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-cards">
+        <a href="mailto:gilles.durnez@hotmail.com" class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/15047/15047587.png" alt="Email">
+            <span>Email</span>
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/270/270798.png" alt="GitHub">
+            <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2504/2504923.png" alt="LinkedIn">
+            <span>LinkedIn</span>
+        </a>
+    </div>
+</section>
+
+    <footer>
+        <p>&copy; Durnez Gilles.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
