@@ -1,0 +1,204 @@
+nav ul 
+{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+img 
+{
+    border-radius: 25px;
+}
+
+nav a, #toc-button 
+{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+main.content-card section 
+{
+    min-height: auto;
+    display: block;
+    padding-top: 10vh;
+    margin: 0 0 40px 0;
+    padding: 0;
+}
+
+main.content-card section h2 
+{
+    margin: 0 0 15px 0; 
+    padding: 0;
+}
+
+main.content-card p 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px 30px;
+}
+
+main p
+{
+    text-align: left;
+}
+
+
+
+.toc-dropdown 
+{
+    position: relative;
+}
+
+.toc-dropdown-content 
+{
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 12px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.toc-dropdown-content.show 
+{
+    display: block;
+}
+
+.toc-dropdown-content ul 
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.toc-dropdown-content li 
+{
+    width: 90%;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-dropdown-content li a 
+{
+    display: block;
+    width: 100%;       
+    padding: 10px 15px;
+    background: rgba(30, 30, 30, 0.85);
+    border-radius: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: left; 
+    transition: background 0.2s ease;
+    box-shadow: none;
+}
+
+.toc-dropdown-content li a:hover 
+{
+    background: rgba(0, 240, 255, 0.15);
+}
+
+.toc-dropdown-content li a.active 
+{
+    background: rgba(0, 240, 255, 0.25);
+}
+
+
+
+main.content-card 
+{
+    max-width: 900px;
+    margin: 120px auto 60px auto;
+    padding: 40px 30px;
+    background: rgba(20,20,20,0.85);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 132, 255, 0.2);
+    color: #f0f0f0;
+}
+
+main.content-card section 
+{
+    margin-bottom: 50px;
+}
+
+main.content-card h2 
+{
+    margin-bottom: 15px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    font-size: 1.8rem;
+}
+
+main.content-card p 
+{
+    line-height: 1.6;
+}
+
+
+
+
+#resources 
+{
+  margin: 40px auto;
+  max-width: 600px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Title */
+#resources h2 
+{
+  margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Remove default list styling */
+#resources ul 
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each list item spacing */
+#resources li 
+{
+  margin: 10px 0;
+}
+
+/* Resource link cards */
+#resources a 
+{
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+#resources a:hover 
+{
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}

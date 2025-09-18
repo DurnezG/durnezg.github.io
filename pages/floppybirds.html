@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Durnez Gilles | FloppyBirds</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="floppybirds.css">
 </head>
 <body>
     <div id="nebula"></div>
@@ -15,10 +16,175 @@
             <h1>Durnez Gilles</h1>
             <ul>
                 <li><a href="../index.html">Home</a></li>
+                <li class="toc-dropdown">
+                    <button id="toc-button">Contents</button>
+                    <div class="toc-dropdown-content" id="toc-dropdown">
+                        <ul>
+                            <li><a href="#foreword">Foreword</a></li>
+                            <li><a href="#input">Reading Input & The Fourscore</a></li>
+                            <li><a href="#refactoring">Refactoring the Codebase</a></li>
+                            <li><a href="#gravity">Gravity</a></li>
+                            <li><a href="#bg1">Background Scrolling Part 1</a></li>
+                            <li><a href="#collision">Collision</a></li>
+                            <li><a href="#loop">The Game Loop</a></li>
+                            <li><a href="#visuals">Updating the Visuals</a></li>
+                            <li><a href="#audio">Audio</a></li>
+                            <li><a href="#bg2">Background Scrolling Part 2</a></li>
+                            <li><a href="#final">The Final Result</a></li>
+                            <li><a href="#score">Adding Score</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
 
+    <main class="content-card">
+        <center><img src="../assets/Images/FloppyBirds.png" style="vertical-align: middle; max-width: 80vw;" alt="FloppyBirds Screenshot"></center>
+
+        <p>The code for this project can be found at: <a href="https://github.com/GeleArthur/Nes_Flappingbird">FloppyBirds</a></p>
+
+        <section id="foreword">
+            <h2>Foreword</h2>
+            <p>For the course Retro Game consoles at DAE me and 3 friends chose to recreate the mobile game flappy bird. 
+                But we did this with a slight twist where we made this a 4 player experience.
+                This page talkes about the journey we underwent to create this game in assembly for the nintendo NES. </p>
+            <p>We started by a base provided by the book: <a href="https://www.amazon.com/Classic-Game-Programming-NES-retro/dp/1633438015">Classic Game Programming on the NES by Tony Cruise</a>
+            After reading the first chapters on how the nes works and was made, we started on implementing our idea.</p>
+        </section>
+
+        <section id="input">
+            <h2>Reading Input & The Fourscore</h2>
+            <p>Lets start with one controller. When we talk about reading controller input from the nes we talk about the 4021 - Shift register.
+                The 4021 takes in parallel input and outputs serial data. Meaning it buffers the state of the controller. The controller has 8 buttons, each button is connected to one of the 8 inputs of the shift register.
+                When we want to read the state of the buttons we first need to tell the shift register to latch the current state of the buttons. We do this by writing a 1 to memory address $4016.
+                This buffers the current state of the controllers input. Now we can read the state of the buttons by reading from memory address $4016. Each time we read from this address we get the state of one button, starting from the A button and ending with the right button.
+                After reading all 8 buttons we need to tell the shift register to stop outputting data by writing a 0 to memory address $4016.
+                This process is shown in the gif below.</p>
+            <img src="../assets/Images/Input-Gif.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+            <figcaption>Source: <a href="https://youtu.be/PwZEBE66an0?si=vPhMUtJmXgpj7Dv0">NES Architecture Explained - NesHacker</a></figcaption>
+            <p>Now we buffer this input. Since we receive this input bit by bit. We store it bit by bit aswell. We shift our input bit into our register and once we received every input we store this input so we can later use this in our programm.</p>
+            <img src="../assets/Images/BufferingInput.png" style="width: 40vw; min-width: 400px;" alt="Input">
+            <figcaption>Source: <a href="https://youtu.be/PwZEBE66an0?si=vPhMUtJmXgpj7Dv0">NES Architecture Explained - NesHacker</a></figcaption>
+            <p>Now that we can read input from one controller we need to read input from 4 controllers. For this we use the Fourscore. The Fourscore is a multitap for the nes.
+                The Fourscore works by multiplexing the input from the 4 controllers. It takes in the input from the 4 controllers and outputs it to the nes in a way that the nes can understand.
+                The Fourscore has 4 4021 shift registers (2*2), one for each controller. When we want to read the input from the controllers we again first need to tell the Fourscore to latch the current state of the buttons.
+                This buffers the current state of the controllers input. Now we can read the state of the buttons by reading from memory address $4016. Each time we read from this address we get the state of one button.
+                After reading all 8 buttons from one controller we continue reading from the same memmory address. The Fourscore will switch internally to the next controller and output the state of the buttons from that controller.
+                Adress $4016 will output the state of the buttons from controller 1 and 3. Address $4017 will output the state of the buttons from controller 2 and 4.
+        </section>
+
+        <section id="refactoring">
+            <h2>Refactoring the Codebase</h2>
+            <p>After reading the input of the controllers we took some time to refactor the codebase. The codebase of the book came mainly in 1 file and was growing fast. As we also wanted to start working on different parts of the code simultaniously and
+            wanted to keep the codebase clean we decided to split the codebase into different files. We created a file for each major part of the game. This way we could work on different parts of the game without interfering with each other.
+            </p>
+        </section>
+
+        <section id="gravity">
+            <h2>Gravity</h2>
+            <p>Now that we can handle input it was time to make the player move. Here we make the player move based on a velocity and acceleration applied to the player. When the player presses up, the velocity of the player changes. Based on the previous state of the button we
+                check if the player can move up or not. Forcing the player to tap the button instead of holding it down. Each frame we apply a constant acceleration to the player, simulating gravity. This way the player will fall down if no input is given.
+                To make sure the player can follow along with the movement of the bird we also apply a therminal velocity to the player. This way the player will not fall down too fast.
+            </p>
+            <img src="../assets/Images/Gravity.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+        </section>
+    
+        <section id="bg1">
+            <h2>Background Scrolling Part 1</h2>
+            <p> We can handle input and our characters move. It was time to make the environment move. This was where stuff started to get more interesting.
+                The nes has a background layer and a sprite layer. The background layer is made up of tiles. Each tile is 8x8 pixels. The background layer is made up of 32x30 tiles. This means that the background layer is 256x240 pixels.
+                Instead of moving the player we move the background. This is done by changing the scroll values of the background layer. The scroll values are stored in memory address $2005 and $2006.
+                As shown in the gif below we change the scroll values each frame to create the illusion of movement. The Nes built in feature to scroll is limited to 2 background images at a time. This means we have to start overwriting the background once we scrolled.
+                Due to the limited speed of the hardware we can only update a limited amount of tiles each frame. This means we have to be smart about which tiles we update each frame. We have just enough time to update 2 columns of tiles each frame.
+                This means we have to update the tiles that are about to come into view. This proved to be an interesting challenge and will continue on in Background Scrolling Part 2.
+            </p>
+            <img src="../assets/Images/ScrollingPart1.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+        </section>
+        
+        <section id="collision">
+            <h2>Collision</h2>
+            <div style="display: flex; align-items: flex-start; gap: 15px; margin: 20px 0; padding-left: 40px;">
+                <img src="../assets/Images/Collision2.png"  style="max-width: 200px; max-height: 400px;" alt=" Collision line">
+                <p> Its time to start hitting stuf! Here we used a little trick to save up on checks and data. To check weather we hit something we alligned the map te be in groups of 32 pixels. This means that means that when we check for collision on the X-axis we only need to check for 1 bit.
+                    When scrolling we check if the scroll ofset is a multiple of 32 by checking with 0b00100000. This way we know if collision on the X axis is possable. That way we only need to check for the ranges of the Y-Value.
+                    To check this range we defined 8 bytes of extra data for each map (or background) that we used. The pixel where the top of the collider starts, and the pixel where the bottom collider starts. We always asume the collider goes to the end of the screen. The colliders are defined by top and bottom.
+                </p>
+            </div>
+            <img src="../assets/Images/Collision.png" style="width: 40vw; min-width: 400px;" alt="Collision image">
+
+        </section>
+        
+        <section id="loop">
+            <h2>The Game Loop</h2>
+            <p> This is already starting to look like something but whe still need some importand aspects before we actually have a game. We need a game loop to begin with. Because resetting your console manually each time after all the players die thats annoying.
+                So, instead of pressing the button. We call the reset interrupt ourselves when we realise we reach the situation where all players are dead. This way we can restart the game without having to prepare any special loading. This will later prove but for now this works like a charm.
+                We also need to load into the game. Here we transition from the title screen to the game when all players press the A Button or when player 1 presses start. This way we can play the game with 1 to 4 players. Not all are required.
+                <img src="../assets/Images/FloppyBirds.png" alt="Image 2" style="width: 50%; height: auto; border-radius: 8px;">
+                <img src="../assets/Images/IngameScreenshot.png" alt="Image 1" style="width: 50%; height: auto; border-radius: 8px;">
+            </div>
+            </p>
+        </section>
+        
+        <section id="visuals">
+            <h2>Updating the Visuals</h2>
+            <p> As you might have already noticed this is when The visual also started to be reworked. Some code had to be addapted to this aswell. We made the changes of making the players 2x2 foreground sprites, since we have 4 players and max 8 foreground sprites on 1 line we can use all of these to make the player more vissable.
+                It was also time to think about some more eye candy for the background. So we added some simple and reusable environment details. Here we saved out on some memry by reusing some of the tiles but only changing the color palet. This way we had clouds and bushes with only having to change the colour palet.
+                Gaining the results as seen above. To create the visuals we used a programm called NEXXT studio.
+            </p>
+            <img src="../assets/Images/UpdatingTheVisuals.png"  style="width: 40vw; min-width: 400px;" alt=" Collision line">
+        </section>
+
+        <section id="audio">
+        <h2>Audio</h2>
+        <p>A game is not a game without some sound. So Bram set out to create some quick tunes to play in the background when playing the game. For this he used FamiStudio. And this is a shot snippet of the result.</p>
+        <div style="text-align: center; margin: 20px 0;">
+        <video style="max-width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.5);" controls>
+            <source src="../assets/Video/AddingAudio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </div>
+        </section>
+
+        <section id="bg2">
+        <h2>Background Scrolling Part 2</h2>
+        <p>But before we are done. We really wanted multiple maps (backgrounds). This makes the game way more replayable and fun. But for this we had to overwrite the background during runtime. This took a while to get correct. The only moment we can do this is during the vblank.
+            We also don't have enough time to update the whole background during vblank. So we had to be smart about which tiles we updated. We only updated the tiles that were about to come into view. This way we could create the illusion of a scrolling background.
+            From what we read we had just enough time to update 2 columns of tiles each frame. Getting this communcition correctly with the ppu took some time but we endeded up with the following result.
+            We were verry happy and ended up with just enought time to add 5 different maps. Which we select at random except for when the game starts. We thought it would be nice to start with the start screen to have a cleaner transition into the game.
+        </p>
+        <img src="../assets/Images/BackgroundPart2.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+        </section>
+
+        <section id="score">
+        <h2>Adding score</h2>
+        <p>Sadly enough we ended up running out of time but we still had one piece missing. Rubbing it in to your friends that you are the better player. So afterwards we added score to the game to finish it. This meant resetting as we did it previously would not work anymore.
+            Since resetting resets the entire memory we had do find some way to retain the score. We did this by having a reset for the game, which functions like the normal reset, but when we reset the game the score gets pushed on the stack. And we do not clear the first 4 bytes on the stack to retain that score.
+            This way we can reset the game and retain the score. The last player alive gets 1 point added to his score.
+        </p>
+        </section>
+
+        <section id="final">
+        <h2>The Final Result</h2>
+        <p>[Wrap up with screenshots, final thoughts, what you learned.]</p>
+        </section>
+
+        <section id="resources">
+        <ul>
+            <h2>Resources</h2>
+            <li><a href="https://www.nesdev.org/">Nes DEV</a></li>
+            <li><a href="https://www.youtube.com/@NesHacker">Nes Hacker Youtube</a></li>
+            <li><a href="https://www.amazon.com/Classic-Game-Programming-NES-retro/dp/1633438015">Classic-Game-Programming-NES</a></li>
+        </ul>
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>&copy; Durnez Gilles.</p>
+    </footer>
+
     <script src="../script.js"></script>
+    <script src="floppybirds.js"></script>
 </body>
 </html>
