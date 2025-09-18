@@ -62,10 +62,10 @@
                 This buffers the current state of the controllers input. Now we can read the state of the buttons by reading from memory address $4016. Each time we read from this address we get the state of one button, starting from the A button and ending with the right button.
                 After reading all 8 buttons we need to tell the shift register to stop outputting data by writing a 0 to memory address $4016.
                 This process is shown in the gif below.</p>
-            <img src="../assets/Images/Input-Gif.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+            <img src="../assets/Images/Input-Gif.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Input">
             <figcaption>Source: <a href="https://youtu.be/PwZEBE66an0?si=vPhMUtJmXgpj7Dv0">NES Architecture Explained - NesHacker</a></figcaption>
             <p>Now we buffer this input. Since we receive this input bit by bit. We store it bit by bit aswell. We shift our input bit into our register and once we received every input we store this input so we can later use this in our programm.</p>
-            <img src="../assets/Images/BufferingInput.png" style="width: 40vw; min-width: 400px;" alt="Input">
+            <img src="../assets/Images/BufferingInput.png" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Buffering Input">
             <figcaption>Source: <a href="https://youtu.be/PwZEBE66an0?si=vPhMUtJmXgpj7Dv0">NES Architecture Explained - NesHacker</a></figcaption>
             <p>Now that we can read input from one controller we need to read input from 4 controllers. For this we use the Fourscore. The Fourscore is a multitap for the nes.
                 The Fourscore works by multiplexing the input from the 4 controllers. It takes in the input from the 4 controllers and outputs it to the nes in a way that the nes can understand.
@@ -88,7 +88,7 @@
                 check if the player can move up or not. Forcing the player to tap the button instead of holding it down. Each frame we apply a constant acceleration to the player, simulating gravity. This way the player will fall down if no input is given.
                 To make sure the player can follow along with the movement of the bird we also apply a therminal velocity to the player. This way the player will not fall down too fast.
             </p>
-            <img src="../assets/Images/Gravity.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+            <img src="../assets/Images/Gravity.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Gravity">
         </section>
     
         <section id="bg1">
@@ -100,7 +100,7 @@
                 Due to the limited speed of the hardware we can only update a limited amount of tiles each frame. This means we have to be smart about which tiles we update each frame. We have just enough time to update 2 columns of tiles each frame.
                 This means we have to update the tiles that are about to come into view. This proved to be an interesting challenge and will continue on in Background Scrolling Part 2.
             </p>
-            <img src="../assets/Images/ScrollingPart1.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+            <img src="../assets/Images/ScrollingPart1.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Scrolling part 1">
         </section>
         
         <section id="collision">
@@ -112,7 +112,7 @@
                     To check this range we defined 8 bytes of extra data for each map (or background) that we used. The pixel where the top of the collider starts, and the pixel where the bottom collider starts. We always asume the collider goes to the end of the screen. The colliders are defined by top and bottom.
                 </p>
             </div>
-            <img src="../assets/Images/Collision.png" style="width: 40vw; min-width: 400px;" alt="Collision image">
+            <img src="../assets/Images/Collision.png" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Collision image">
 
         </section>
         
@@ -121,7 +121,7 @@
             <p> This is already starting to look like something but whe still need some importand aspects before we actually have a game. We need a game loop to begin with. Because resetting your console manually each time after all the players die thats annoying.
                 So, instead of pressing the button. We call the reset interrupt ourselves when we realise we reach the situation where all players are dead. This way we can restart the game without having to prepare any special loading. This will later prove but for now this works like a charm.
                 We also need to load into the game. Here we transition from the title screen to the game when all players press the A Button or when player 1 presses start. This way we can play the game with 1 to 4 players. Not all are required.
-            <div style="display: flex; gap: 15px; margin: 20px 0; padding: 0 20px;">
+            <div style="display: flex; gap: 15px; margin: 20px 0; padding: 0 20px; max-width: 90vw;">
                 <img src="../assets/Images/FloppyBirds.png" alt="Image 1" style="width: 50%; height: auto; border-radius: 8px;">
                 <img src="../assets/Images/IngameScreenshot.png" alt="Image 2" style="width: 50%; height: auto; border-radius: 8px;">
             </div>
@@ -134,7 +134,7 @@
                 It was also time to think about some more eye candy for the background. So we added some simple and reusable environment details. Here we saved out on some memry by reusing some of the tiles but only changing the color palet. This way we had clouds and bushes with only having to change the colour palet.
                 Gaining the results as seen above. To create the visuals we used a programm called NEXXT studio.
             </p>
-            <img src="../assets/Images/UpdatingTheVisuals.png"  style="width: 40vw; min-width: 400px;" alt=" Collision line">
+            <img src="../assets/Images/UpdatingTheVisuals.png"  style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Updating the Visuals">
         </section>
 
         <section id="audio">
@@ -156,7 +156,7 @@
             To get different maps to work we also needed pointers, which pointed to the address of the table we currently needed to use. This way we could easily switch between different maps. But adresses are 2bytes and our registers are only 1 byte big.
             We were verry happy and ended up with just enought time to add 5 different maps. Which we select at random except for when the game starts. We thought it would be nice to start with the start screen to have a cleaner transition into the game.
         </p>
-        <img src="../assets/Images/BackgroundPart2.gif" style="width: 40vw; min-width: 400px;" alt="Input">
+        <img src="../assets/Images/BackgroundPart2.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="background part 2">
         </section>
 
         <section id="score">
