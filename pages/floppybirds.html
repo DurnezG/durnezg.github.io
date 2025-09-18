@@ -14,7 +14,8 @@
     <header>
         <nav>
             <h1>Durnez Gilles</h1>
-            <ul>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li class="toc-dropdown">
                     <button id="toc-button">Contents</button>
@@ -120,8 +121,9 @@
             <p> This is already starting to look like something but whe still need some importand aspects before we actually have a game. We need a game loop to begin with. Because resetting your console manually each time after all the players die thats annoying.
                 So, instead of pressing the button. We call the reset interrupt ourselves when we realise we reach the situation where all players are dead. This way we can restart the game without having to prepare any special loading. This will later prove but for now this works like a charm.
                 We also need to load into the game. Here we transition from the title screen to the game when all players press the A Button or when player 1 presses start. This way we can play the game with 1 to 4 players. Not all are required.
-                <img src="../assets/Images/FloppyBirds.png" alt="Image 2" style="width: 50%; height: auto; border-radius: 8px;">
-                <img src="../assets/Images/IngameScreenshot.png" alt="Image 1" style="width: 50%; height: auto; border-radius: 8px;">
+            <div style="display: flex; gap: 15px; margin: 20px 0; padding: 0 20px;">
+                <img src="../assets/Images/FloppyBirds.png" alt="Image 1" style="width: 50%; height: auto; border-radius: 8px;">
+                <img src="../assets/Images/IngameScreenshot.png" alt="Image 2" style="width: 50%; height: auto; border-radius: 8px;">
             </div>
             </p>
         </section>
@@ -151,6 +153,7 @@
         <p>But before we are done. We really wanted multiple maps (backgrounds). This makes the game way more replayable and fun. But for this we had to overwrite the background during runtime. This took a while to get correct. The only moment we can do this is during the vblank.
             We also don't have enough time to update the whole background during vblank. So we had to be smart about which tiles we updated. We only updated the tiles that were about to come into view. This way we could create the illusion of a scrolling background.
             From what we read we had just enough time to update 2 columns of tiles each frame. Getting this communcition correctly with the ppu took some time but we endeded up with the following result.
+            To get different maps to work we also needed pointers, which pointed to the address of the table we currently needed to use. This way we could easily switch between different maps. But adresses are 2bytes and our registers are only 1 byte big.
             We were verry happy and ended up with just enought time to add 5 different maps. Which we select at random except for when the game starts. We thought it would be nice to start with the start screen to have a cleaner transition into the game.
         </p>
         <img src="../assets/Images/BackgroundPart2.gif" style="width: 40vw; min-width: 400px;" alt="Input">
@@ -166,7 +169,10 @@
 
         <section id="final">
         <h2>The Final Result</h2>
-        <p>[Wrap up with screenshots, final thoughts, what you learned.]</p>
+        <video style="max-width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.5);" controls>
+            <source src="../assets/Video/FloppyBirds.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         </section>
 
         <section id="resources">

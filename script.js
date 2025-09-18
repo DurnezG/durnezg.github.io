@@ -119,3 +119,10 @@ window.addEventListener('scroll', () => {
         if (p.y > canvas.height) p.y = 0;
     });
 });
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
