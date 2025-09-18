@@ -201,6 +201,7 @@ footer
     border-radius: 15px;
     overflow: hidden;
     width: 40vh;
+    max-width: 90vw;
     text-decoration: none;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
