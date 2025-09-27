@@ -47,7 +47,9 @@ function InitParticles()
 {
     particlesArray = [];
     const layers = 3;
-    const particlesPerLayer = 200;
+    const isMobile = window.innerWidth <= 768;
+    const particlesPerLayer = isMobile ? 80 : 200;
+
     for (let layer = 1; layer <= layers; layer++) 
     {
         for (let i = 0; i < particlesPerLayer; i++) 

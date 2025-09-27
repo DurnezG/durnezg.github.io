@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durnez Gilles | Soup Showdown</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="floppybirds.css">
+</head>
+<body>
+    <div id="nebula"></div>
+    <canvas id="particles"></canvas>
+
+    <header>
+        <nav>
+            <h1>Durnez Gilles</h1>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="toc-dropdown">
+                    <button id="toc-button">Contents</button>
+                    <div class="toc-dropdown-content" id="toc-dropdown">
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#theTeam">The Team</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-card">
+        <section>
+            <h2>Soup Showdown</h2>
+            <center><img src="../assets/Images/SoupShowdown.png" style="vertical-align: middle;" alt="Soup Showdown"></center>
+            <p>The itch page with more details about the project can be found at: <a href="https://lennertje2005.itch.io/group-17-group-projects">Soup Showdown</a></p>
+    
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/HaMmb3vgtSQ" 
+                    title="Soup Showdown Trailer" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About this project</h2>
+            <p> On my second year at DAE me and 5 colleagues were tasked with creating a local multiplayer game. This was the first time I had worked on a game project with people who where not also gamedevelopers.
+                We all provided some game ideas and we decided to go with Soup Showdown, a game where players have to collect ingredients to make soup while trying to sabotage the other team.
+                Different ingredients have different purposes. For example, some ingredients are worth more points, some ingredients give you a speed boost, and some ingredients let you become huge.
+                The goal, to create as much of your best soups before the time runs out.
+            </p>
+        </section>
+
+        <section id="theTeam">
+            <h2>The Team</h2>
+            <img src="../assets/Images/SoupShowdownTeam.png" alt="The Team">
+        </section>
+
+    </main>
+
+    
+
+    <footer>
+        <p>&copy; Durnez Gilles.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="floppybirds.js"></script>
+</body>
+</html>
