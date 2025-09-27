@@ -217,6 +217,39 @@ footer
     gap: 2rem;
 }
 
+#projects h3
+{
+    color: #00f0ff;
+    margin-bottom: 2rem;
+}
+
+.other-projects-grid 
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.other-project-card 
+{
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.other-project-card:hover 
+{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
 .project-card 
 {
     display: flex;
@@ -259,7 +292,8 @@ footer
     transform: scale(1.05);
 }
 
-.project-group {
+.project-group 
+{
   margin: 30px 0;
   padding: 20px;
   border-radius: 12px;
@@ -267,14 +301,23 @@ footer
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-.project-group .group-title {
+.group-description 
+{
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ccc;
+}
+
+.project-group .group-title 
+{
   margin-bottom: 15px;
   text-align: center;
   color: #00e0ff;
   font-size: 1.4rem;
 }
 
-.project-group .project-cards {
+.project-group .project-cards 
+{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -282,8 +325,15 @@ footer
 }
 
 /* Related projects inside a group */
-.project-group .project-card.related {
+.project-group .project-card.related 
+{
   border: 2px solid #00e0ff;  /* only applied when grouped */
+  border-radius: 10px;
+}
+
+.project-group .project-card.related2 
+{
+  border: 2px solid #8400ff;
   border-radius: 10px;
 }
 
@@ -330,8 +380,8 @@ footer
 }
 
 .status-badge.wip {
-  background: rgba(98, 0, 255, 0.671); /* orange tone */
-  color: #5c179c;
+  background-color: rgba(98, 0, 255, 0.671);
+  border-color: #5c179c;
   font-weight: bold;
 }
 
