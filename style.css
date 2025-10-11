@@ -171,6 +171,30 @@ section
     position: relative;
 }
 
+section p a 
+{
+  display: inline;
+}
+
+p a 
+{
+  display: inline !important;
+  white-space: normal !important;
+  vertical-align: baseline !important;
+}
+
+section p 
+{
+    display: block;
+    width: auto;
+    text-align: center; 
+}
+
+section p a 
+{
+    display: inline;
+}
+
 h2 
 {
     font-size: 2.5rem;
@@ -226,7 +250,7 @@ footer
 .other-projects-grid 
 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin: 2rem 0;
 }
@@ -681,3 +705,25 @@ SKILLS
     transform: scale(1.2);
     filter: brightness(1.2);
 }
+
+main.content-card > p,
+main.content-card > p a,
+main.content-card p a,
+.content-card p a {
+  display: inline !important;
+  white-space: normal !important;
+  vertical-align: baseline !important;
+}
+
+main.section.content-card > p,
+main.section.content-card > p a,
+main.section.content-card p a,
+.content-card p a {
+  display: inline !important;
+  white-space: normal !important;
+  vertical-align: baseline !important;
+}
+
+.content-line { display:block; width:100%; text-align:center; }
+.content-line p { display:inline-block; margin:0; white-space:normal; }
+.content-line p a { display:inline !important; }
