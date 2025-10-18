@@ -565,6 +565,63 @@ SKILLS
   margin-top: 0.3rem;
 }
 
+.skill-cards-color, .language-cards 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Individual skill/tool card */
+.skill-card-color 
+{
+  background: rgba(20,20,20,0.7);
+  border-radius: 15px;
+  padding: 1rem;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card-color:hover 
+{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+}
+
+.skill-card-color img 
+{
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  filter: brightness(1);
+  transition: transform 0.3s ease;
+}
+
+.skill-card-color:hover img 
+{
+  transform: scale(1.2);
+}
+
+.skill-card-color span 
+
+{
+  font-size: 0.9rem;
+  color: #fff;
+  text-align: center;
+}
+
+.skill-card-color small 
+{
+  font-size: 0.7rem;
+  color: #aaa;
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
 .language-cards 
 {
     display: flex;
@@ -704,6 +761,13 @@ SKILLS
 {
     transform: scale(1.2);
     filter: brightness(1.2);
+}
+
+
+
+.skill-card img
+{
+  filter: invert();
 }
 
 main.content-card > p,
