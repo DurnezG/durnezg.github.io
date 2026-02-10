@@ -202,13 +202,15 @@
   position: relative;
   overflow: hidden;
 
-  background:
-    radial-gradient(circle at 30% 30%, rgba(159,180,255,0.20), rgba(159,180,255,0.00) 55%),
-    rgba(255,255,255,0.06);
-
+  background: rgba(255,255,255,0.06);
   border: 1px solid rgba(159,180,255,0.25);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 -6px 12px rgba(0,0,0,0.35);
 }
 
+/* LIQUID */
 .tcg-flask::after
 {
   content: "";
@@ -216,22 +218,147 @@
   inset: 3px;
   border-radius: 50%;
 
+  /*
+    The liquid is the whole orb, but we "fill" it from the bottom
+    by clipping from the top.
+  */
+  clip-path: inset(calc(100% - var(--fill, 50%)) 0 0 0);
+
   background:
-    radial-gradient(circle at 35% 25%, rgba(255,255,255,0.30), rgba(255,255,255,0.00) 55%),
+    /* soft internal glow */
+    radial-gradient(circle at 35% 25%, rgba(255,255,255,0.22), rgba(255,255,255,0.00) 55%),
+
+    /* bubbles / flecks */
+    radial-gradient(circle at 25% 70%, rgba(255,255,255,0.18), rgba(255,255,255,0.00) 35%),
+    radial-gradient(circle at 70% 55%, rgba(255,255,255,0.12), rgba(255,255,255,0.00) 40%),
+
+    /* subtle swirl bands */
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,0.00),
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.00)
+    ),
+
+    /* base liquid */
     linear-gradient(
       180deg,
       color-mix(in srgb, var(--orb-color) 70%, white 30%),
       var(--orb-color)
     );
 
-  box-shadow:
-    inset 0 0 6px rgba(255,255,255,0.25),
-    0 0 10px color-mix(in srgb, var(--orb-color) 45%, transparent 55%);
+  background-size:
+    auto,
+    auto,
+    auto,
+    140% 140%,
+    auto;
 
-  /* This is the key: slide the liquid circle up/down */
-  transform: translateY(calc(100% - var(--fill, 50%)));
-  transition: transform 220ms ease;
+  background-position:
+    center,
+    center,
+    center,
+    0% 0%,
+    center;
+
+  filter: saturate(1.05) contrast(1.05);
+  opacity: 0.92;
+
+  box-shadow:
+    inset 0 0 8px rgba(255,255,255,0.18),
+    0 0 10px color-mix(in srgb, var(--orb-color) 40%, transparent 60%);
+
+  transition: clip-path 220ms ease;
+  animation: potionSwirl 2.8s ease-in-out infinite;
 }
+
+.tcg-meniscus
+{
+  position: absolute;
+  left: 5px;
+  right: 5px;
+
+  /*
+    Position the meniscus at the top of the liquid
+    100% - fill = liquid height from bottom
+  */
+  bottom: calc(var(--fill, 50%) - 2px);
+
+  height: 4px;
+  border-radius: 999px;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.45),
+      rgba(255,255,255,0.00)
+    );
+
+  opacity: 0.65;
+  filter: blur(0.3px);
+  mix-blend-mode: screen;
+
+  transition: bottom 220ms ease;
+}
+
+/* GLASS OVERLAY */
+.tcg-flask::before
+{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background:
+    /* glass highlight streak */
+    radial-gradient(circle at 25% 20%, rgba(255,255,255,0.32), rgba(255,255,255,0.00) 55%),
+
+    /* rim light */
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.00) 58%, rgba(255,255,255,0.14) 68%, rgba(255,255,255,0.00) 78%),
+
+    /* inner shadow / depth */
+    radial-gradient(circle at 50% 70%, rgba(0,0,0,0.00) 55%, rgba(0,0,0,0.30) 100%);
+
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,0.30),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+@keyframes potionSwirl
+{
+  0%
+  {
+    background-position:
+      center,
+      center,
+      center,
+      0% 0%,
+      center;
+  }
+
+  50%
+  {
+    background-position:
+      center,
+      center,
+      center,
+      100% 100%,
+      center;
+  }
+
+  100%
+  {
+    background-position:
+      center,
+      center,
+      center,
+      0% 0%,
+      center;
+  }
+}
+
 
 /* Flask states */
 
