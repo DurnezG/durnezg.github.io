@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Durnez Gilles | Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/base.css">
+    <link rel="stylesheet" href="src/css/components.cards.css">
 </head>
 <body>
     <div id="nebula"></div>
@@ -30,7 +32,113 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section class="projects" aria-label="Projects">
+    <div class="card-hand" id="projectHand">
+        <button
+        class="tcg-card"
+        type="button"
+        data-title="Floppy Birds"
+        data-state="FINISHED"
+        data-desc="A Flappy Bird-inspired project with my own twist."
+        data-link="pages/floppy-birds.html"
+        style="--i: 0;"
+        >
+        <div class="tcg-frame">
+            <div class="tcg-top">
+            <div class="tcg-title">Floppy Birds</div>
+            <div class="tcg-state" data-state-badge>FINISHED</div>
+            </div>
+
+            <div class="tcg-art">
+            <div class="tcg-art-placeholder">ART</div>
+            </div>
+
+            <div class="tcg-bottom">
+            <div class="tcg-flask" data-state-flask aria-hidden="true"></div>
+            <div class="tcg-sub">Arcade / Unity</div>
+            </div>
+            <span class="tcg-shine" aria-hidden="true"></span>
+        </div>
+
+        </button>
+
+        <button
+        class="tcg-card"
+        type="button"
+        data-title="Soup Showdown"
+        data-state="WIP"
+        data-desc="A game project currently in development."
+        data-link="pages/soup-showdown.html"
+        style="--i: 1;"
+        >
+        <div class="tcg-frame">
+            <div class="tcg-top">
+            <div class="tcg-title">Soup Showdown</div>
+            <div class="tcg-state" data-state-badge>WIP</div>
+            </div>
+
+            <div class="tcg-art">
+            <div class="tcg-art-placeholder">ART</div>
+            </div>
+
+            <div class="tcg-bottom">
+            <div class="tcg-flask" data-state-flask aria-hidden="true"></div>
+            <div class="tcg-sub">Prototype</div>
+            </div>
+            <span class="tcg-shine" aria-hidden="true"></span>
+        </div>
+
+        </button>
+
+        <button
+        class="tcg-card"
+        type="button"
+        data-title="Coming Soon"
+        data-state="ONGOING"
+        data-desc="Next project slot. Teaser content later."
+        data-link="pages/coming-soon.html"
+        style="--i: 2;"
+        >
+        <div class="tcg-frame">
+            <div class="tcg-top">
+            <div class="tcg-title">Coming Soon</div>
+            <div class="tcg-state" data-state-badge>ONGOING</div>
+            </div>
+
+            <div class="tcg-art">
+            <div class="tcg-art-placeholder">???</div>
+            </div>
+
+            <div class="tcg-bottom">
+            <div class="tcg-flask" data-state-flask aria-hidden="true"></div>
+            <div class="tcg-sub">Mystery</div>
+            </div>
+            <span class="tcg-shine" aria-hidden="true"></span>
+        </div>
+
+        </button>
+    </div>
+    </section>
+<!-- 
+    <div class="card-overlay" id="cardOverlay" hidden>
+    <div class="card-focus" role="dialog" aria-modal="true" aria-label="Project details">
+        <button class="card-close" type="button" id="cardClose" aria-label="Close">✕</button>
+
+        <div class="card-focus-header">
+        <div class="card-focus-title" id="focusTitle"></div>
+        <div class="card-focus-state" id="focusState"></div>
+        </div>
+
+        <div class="card-focus-desc" id="focusDesc"></div>
+
+        <div class="card-focus-actions">
+        <a class="card-cta" id="focusLink" href="#">Open project</a>
+        </div>
+    </div>
+    </div> -->
+
+
+    <!-- <section id="projects">
         <h2>My Projects</h2>
         <div class="projects-grid">
 
@@ -67,10 +175,10 @@
                     <h3>Coming Soon</h3>
                     <p>...</p>
                 </div>
-            </a>
+            </a> -->
 
             <!-- Custom Engine Group -->
-            <div class="project-group">
+            <!-- <div class="project-group">
                 <h3 class="group-title">My Custom Engine</h3>
                 <div class="project-cards">
                     <p class="group-note">This engine is still a WIP (Work in Progress).</p>
@@ -145,7 +253,7 @@
             <div class="other-project-card">Raspberry Pi-Based Human Movement Tracker</div>
             <div class="other-project-card">Pac-Man VR with Arcade DDR-Style Surface Controller</div>
         </div>
-    </section>
+    </section> -->
 
     <section id="skills">
         <h2>Skills & Tools</h2>

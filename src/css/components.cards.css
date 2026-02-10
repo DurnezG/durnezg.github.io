@@ -1,0 +1,280 @@
+.projects
+{
+  position: relative;
+  padding: 48px 16px 96px 16px;
+}
+
+.card-hand
+{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 0px;
+  pointer-events: auto;
+  z-index: 50;
+}
+
+.tcg-card
+{
+  --spread: 18deg;
+  --lift: 26px;
+
+  position: relative;
+  width: 220px;
+  height: 320px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  transform-origin: 50% 120%;
+  transform:
+    translateX(calc((var(--i) - 1) * -18px))
+    rotate(calc((var(--i) - 1) * var(--spread)))
+    translateY(calc((abs(var(--i) - 1)) * 6px));
+
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
+  filter: saturate(0.95) contrast(0.95);
+}
+
+.tcg-card:focus-visible
+{
+  outline: 3px solid currentColor;
+  outline-offset: 8px;
+}
+
+.tcg-card:hover
+{
+  transform:
+    translateX(calc((var(--i) - 1) * -24px))
+    rotate(calc((var(--i) - 1) * (var(--spread) * 0.65)))
+    translateY(calc(-1 * var(--lift)))
+    scale(1.05);
+
+  filter: saturate(1.1) contrast(1.05);
+  z-index: 10;
+}
+
+.tcg-frame
+{
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  position: relative;
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.20), rgba(255,255,255,0.00) 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0.10)),
+    rgba(20, 20, 26, 1);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.45),
+    inset 0 0 0 2px rgba(255,255,255,0.12),
+    inset 0 0 0 6px rgba(0,0,0,0.35);
+
+  overflow: hidden;
+}
+
+.tcg-top
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px 8px 12px;
+  gap: 12px;
+}
+
+.tcg-title
+{
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.tcg-state
+{
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.tcg-art
+{
+  margin: 0 12px;
+  height: 190px;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)),
+    rgba(0,0,0,0.25);
+
+  border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+  position: relative;
+}
+
+.tcg-art-placeholder
+{
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  letter-spacing: 2px;
+  opacity: 0.55;
+}
+
+.tcg-bottom
+{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  padding: 12px;
+  gap: 10px;
+}
+
+.tcg-sub
+{
+  opacity: 0.85;
+  font-size: 12px;
+}
+
+.tcg-flask
+{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  position: relative;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.00) 55%),
+    rgba(255,255,255,0.10);
+
+  border: 1px solid rgba(255,255,255,0.16);
+  overflow: hidden;
+}
+
+.tcg-flask::after
+{
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: var(--fill, 50%);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.40);
+  filter: blur(0.0px);
+  transition: height 220ms ease;
+}
+
+.tcg-shine
+{
+  position: absolute;
+  inset: -40%;
+  transform: translateX(-40%) rotate(20deg);
+  background: linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.18), rgba(255,255,255,0.00));
+  opacity: 0.0;
+  transition: opacity 220ms ease, transform 420ms ease;
+  pointer-events: none;
+}
+
+.tcg-card:hover .tcg-shine
+{
+  opacity: 1.0;
+  transform: translateX(40%) rotate(20deg);
+}
+
+/* Overlay */
+.card-overlay
+{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  z-index: 200;
+}
+
+.card-focus
+{
+  width: min(560px, calc(100vw - 24px));
+  border-radius: 18px;
+  background: rgba(18,18,24,0.98);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+  padding: 18px;
+}
+
+.card-close
+{
+  position: absolute;
+  margin-left: auto;
+  transform: translateY(-6px);
+  right: 18px;
+  top: 18px;
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+
+.card-focus-header
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-right: 44px;
+}
+
+.card-focus-title
+{
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+.card-focus-state
+{
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.card-focus-desc
+{
+  margin-top: 10px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.card-focus-actions
+{
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-cta
+{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+}
