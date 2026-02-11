@@ -492,3 +492,120 @@
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.14);
 }
+
+.project-stage
+{
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: center;
+  
+  max-width: 1100px;
+  min-height: calc(100vh - 160px);
+  margin: 32px auto;
+  padding: 16px;
+  scroll-margin-top: 110px;
+}
+
+.project-stage-card
+{
+  min-height: 320px;
+  display: grid;
+  place-items: start;
+}
+
+.project-stage-info
+{
+  border-radius: 16px;
+  background: rgba(18,18,24,0.60);
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 16px;
+}
+
+.stage-title
+{
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  margin-bottom: 10px;
+}
+
+.stage-meta
+{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.meta-pill
+{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(230,235,245,0.90);
+}
+
+.stage-desc
+{
+  line-height: 1.55;
+  color: rgba(230,235,245,0.85);
+}
+
+.stage-actions
+{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.stage-cta,
+.stage-secondary
+{
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: rgba(230,235,245,0.95);
+  cursor: pointer;
+}
+
+@media (max-width: 860px)
+{
+  .project-stage
+  {
+    grid-template-columns: 1fr;
+  }
+
+  .project-stage-card
+  {
+    min-height: 0;
+  }
+}
+
+.card-hand.is-selected
+{
+  transform: translateX(-50%) translateY(250px);
+  opacity: 0.95;
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.card-hand.is-selected .tcg-card
+{
+  filter: saturate(0.95) contrast(0.95) brightness(0.96);
+}
+
+.tcg-card.is-active
+{
+  filter: saturate(1.05) contrast(1.02) brightness(1.05);
+}
+
+.card-hand.is-selected .tcg-card:not(.is-active)
+{
+  opacity: 0.78;
+}

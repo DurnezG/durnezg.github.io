@@ -24,6 +24,7 @@ function initProjectCards()
 {
   layoutCardHand();
   initHoverHand();
+  initCardSelection();
 
   window.addEventListener("resize", () =>
   {
@@ -226,6 +227,176 @@ function initHoverHand()
     card.addEventListener("mouseleave", () => clearHoverSeparation());
   });
 }
+
+function $(id)
+{
+  return document.getElementById(id);
+}
+
+function setStageFromCard(card)
+{
+  const title = card.dataset.title || "";
+  const state = card.dataset.state || "";
+  const languages = card.dataset.languages || "—";
+  const framework = card.dataset.framework || "—";
+  const desc = card.dataset.desc || "";
+  const link = card.dataset.link || "#";
+
+  $("stageTitle").textContent = title;
+
+  const meta = $("stageMeta");
+  meta.innerHTML = "";
+  const p1 = document.createElement("span");
+  p1.className = "meta-pill";
+  p1.textContent = "State: " + state;
+
+  const p2 = document.createElement("span");
+  p2.className = "meta-pill";
+  p2.textContent = "Languages: " + languages;
+
+  const p3 = document.createElement("span");
+  p3.className = "meta-pill";
+  p3.textContent = "Framework: " + framework;
+
+  meta.appendChild(p1);
+  meta.appendChild(p2);
+  meta.appendChild(p3);
+
+  $("stageDesc").textContent = desc;
+
+  const a = $("stageLink");
+  a.href = link;
+  a.hidden = false;
+
+  $("stageClose").hidden = false;
+}
+
+function animateCardToStage(card)
+{
+  const slot = $("stageCardSlot");
+  const hand = $("projectHand");
+
+  // Make sure slot is visible in viewport
+  $("projectStage").scrollIntoView({ behavior: "smooth", block: "center" });
+
+
+  // Clone for animation (keeps hand layout intact)
+  const first = card.getBoundingClientRect();
+  const clone = card.cloneNode(true);
+
+  clone.classList.add("tcg-card-clone");
+  clone.style.position = "fixed";
+  clone.style.left = first.left + "px";
+  clone.style.top = first.top + "px";
+  clone.style.width = first.width + "px";
+  clone.style.height = first.height + "px";
+  clone.style.margin = "0";
+  clone.style.transform = "none";
+  clone.style.zIndex = "3000";
+  clone.style.pointerEvents = "none";
+
+  document.body.appendChild(clone);
+
+  // Put a real copy into the slot (static)
+  slot.innerHTML = "";
+  const staged = card.cloneNode(true);
+  staged.classList.add("tcg-card-staged");
+  staged.style.position = "relative";
+  staged.style.left = "0";
+  staged.style.bottom = "0";
+  staged.style.transform = "none";
+  staged.style.pointerEvents = "none";
+  slot.appendChild(staged);
+
+  // Now animate clone to the staged card's position
+  const last = staged.getBoundingClientRect();
+
+  const dx = last.left - first.left;
+  const dy = last.top - first.top;
+  const sx = last.width / first.width;
+  const sy = last.height / first.height;
+
+  clone.animate(
+    [
+      { transform: "translate(0px, 0px) scale(1, 1)" },
+      { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` }
+    ],
+    {
+      duration: 420,
+      easing: "cubic-bezier(0.2, 0.9, 0.2, 1)",
+      fill: "forwards"
+    }
+  ).onfinish = () =>
+  {
+    clone.remove();
+  };
+
+  // Hand goes into selected mode (moves away)
+  if (hand)
+  {
+    hand.classList.add("is-selected");
+  }
+
+  // Mark selected (optional)
+  const cards = Array.from(hand.querySelectorAll(".tcg-card"));
+  for (const c of cards)
+  {
+    c.classList.toggle("is-active", c === card);
+  }
+}
+
+function clearSelection()
+{
+  const slot = $("stageCardSlot");
+  const hand = $("projectHand");
+  slot.innerHTML = "";
+
+  $("stageTitle").textContent = "Select a project";
+  $("stageMeta").innerHTML = "<span class=\"meta-pill\">Languages: —</span><span class=\"meta-pill\">Framework: —</span>";
+  $("stageDesc").textContent = "Click a card below to view a short summary here.";
+
+  $("stageLink").hidden = true;
+  $("stageClose").hidden = true;
+
+  if (hand)
+  {
+    hand.classList.remove("is-selected");
+    const cards = Array.from(hand.querySelectorAll(".tcg-card"));
+    for (const c of cards)
+    {
+      c.classList.remove("is-active");
+    }
+  }
+}
+
+function initCardSelection()
+{
+  const hand = $("projectHand");
+  if (!hand)
+  {
+    return;
+  }
+
+  const cards = Array.from(hand.querySelectorAll(".tcg-card"));
+  for (const card of cards)
+  {
+    card.addEventListener("click", () =>
+    {
+      setStageFromCard(card);
+      animateCardToStage(card);
+    });
+  }
+
+  const closeBtn = $("stageClose");
+  if (closeBtn)
+  {
+    closeBtn.addEventListener("click", () =>
+    {
+      clearSelection();
+    });
+  }
+}
+
 
 
 export { initProjectCards };

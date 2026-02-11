@@ -39,7 +39,9 @@
         type="button"
         data-title="Floppy Birds"
         data-state="FINISHED"
-        data-desc="A Flappy Bird-inspired project with my own twist."
+        data-languages="ASSEMBLY"
+        data-framework="NES Hardware"
+        data-desc="A Flappy Bird-inspired project for 4 players. Created for the nintendo NES using only the assembly language."
         data-link="pages/floppy-birds.html"
         >
         <div class="tcg-frame">
@@ -68,6 +70,8 @@
         type="button"
         data-title="Soup Showdown"
         data-state="WIP"
+        data-languages="C#"
+        data-framework="Unity"
         data-desc="A game project currently in development."
         data-link="pages/soup-showdown.html"
         >
@@ -97,6 +101,8 @@
         type="button"
         data-title="Coming Soon"
         data-state="ONGOING"
+        data-languages="C#"
+        data-framework="Unity"
         data-desc="Next project slot. Teaser content later."
         data-link="pages/coming-soon.html"
         >
@@ -122,6 +128,29 @@
         </button>
     </div>
     </section>
+
+    <section class="project-stage" id="projectStage" aria-label="Selected project">
+        <div class="project-stage-card" id="stageCardSlot"></div>
+
+        <div class="project-stage-info">
+            <div class="stage-title" id="stageTitle">Select a project card</div>
+
+            <div class="stage-meta" id="stageMeta">
+            <span class="meta-pill">Languages: —</span>
+            <span class="meta-pill">Framework: —</span>
+            </div>
+
+            <div class="stage-desc" id="stageDesc">
+            Click a card below to view a short summary here.
+            </div>
+
+            <div class="stage-actions">
+            <a class="stage-cta" id="stageLink" href="#" hidden>Open full project</a>
+            <button class="stage-secondary" id="stageClose" type="button" hidden>Back to hand</button>
+            </div>
+        </div>
+    </section>
+
 <!-- 
     <div class="card-overlay" id="cardOverlay" hidden>
     <div class="card-focus" role="dialog" aria-modal="true" aria-label="Project details">
