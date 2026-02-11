@@ -74,13 +74,11 @@
 
 .tcg-card:hover
 {
-  transform:
+    transform:
     translateX(calc(-50% + var(--tx, 0px) + var(--pushX, 0px)))
     rotate(calc(var(--rot, 0deg) * 0.50))
     translateY(calc(var(--ty, 0px) - var(--lift)))
     scale(1.05);
-
-  z-index: 2000;
 }
 
 .tcg-frame

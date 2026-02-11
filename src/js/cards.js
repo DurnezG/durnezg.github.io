@@ -169,8 +169,8 @@ function applyHoverSeparation(hoverIndex)
   const cards = Array.from(hand.querySelectorAll(".tcg-card"));
   const count = cards.length;
 
-  const pushBase = 34; // px
-  const rotBase = 4;   // deg
+  const pushBase = 100; // px
+  const rotBase = 20;   // deg
 
   for (let i = 0; i < count; i++)
   {
@@ -182,11 +182,10 @@ function applyHoverSeparation(hoverIndex)
     {
       card.style.setProperty("--pushX", "0px");
       card.style.setProperty("--pushR", "0deg");
-      card.style.zIndex = "2000";
       continue;
     }
 
-    const influence = 1 / Math.pow(ad + 1, 1.35);
+    const influence = 1 / Math.pow(ad + 1, 1.15);
     const dir = d > 0 ? 1 : -1;
 
     card.style.setProperty("--pushX", (dir * pushBase * influence).toFixed(2) + "px");
