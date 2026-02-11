@@ -205,6 +205,7 @@ function setStageFromCard(card)
   const framework = card.dataset.framework || "—";
   const desc = card.dataset.desc || "";
   const link = card.dataset.link || "#";
+  const role = card.dataset.role || "—";
 
   $("stageTitle").textContent = title;
 
@@ -222,9 +223,14 @@ function setStageFromCard(card)
   p3.className = "meta-pill";
   p3.textContent = "Framework: " + framework;
 
+  const p4 = document.createElement("span");
+  p4.className = "meta-pill";
+  p4.textContent = "Role: " + role;
+
   meta.appendChild(p1);
   meta.appendChild(p2);
   meta.appendChild(p3);
+  meta.appendChild(p4);
 
   $("stageDesc").textContent = desc;
 
