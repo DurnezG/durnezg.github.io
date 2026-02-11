@@ -103,11 +103,29 @@ window.addEventListener('resize', () =>
 });
 
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+{
+    anchor.addEventListener("click", function (e)
+    {
+        const targetId = this.getAttribute("href");
+
+        if (!targetId || targetId === "#")
+        {
+            return;
+        }
+
+        const target = document.querySelector(targetId);
+        if (!target)
+        {
+            return;
+        }
+
+        e.preventDefault();
+        target.scrollIntoView(
+        {
+            behavior: "smooth"
+        });
+    });
 });
 
 // Parallax effect

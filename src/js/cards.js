@@ -32,13 +32,7 @@ function initProjectCards()
   });
 
   const cards = document.querySelectorAll(".tcg-card");
-  const overlay = document.getElementById("cardOverlay");
-  const closeBtn = document.getElementById("cardClose");
-
-  const focusTitle = document.getElementById("focusTitle");
-  const focusState = document.getElementById("focusState");
-  const focusDesc = document.getElementById("focusDesc");
-  const focusLink = document.getElementById("focusLink");
+  const closeBtn = document.getElementById("stageClose");
 
   for (const card of cards)
   {
@@ -58,40 +52,10 @@ function initProjectCards()
 
     card.addEventListener("click", () =>
     {
-      focusTitle.textContent = card.dataset.title || "";
-      focusState.textContent = state;
-      focusDesc.textContent = card.dataset.desc || "";
-      focusLink.href = card.dataset.link || "#";
-
-      overlay.hidden = false;
       document.body.style.overflow = "hidden";
       closeBtn.focus();
     });
   }
-
-  function closeOverlay()
-  {
-    overlay.hidden = true;
-    document.body.style.overflow = "";
-  }
-
-  closeBtn.addEventListener("click", closeOverlay);
-
-  overlay.addEventListener("click", (e) =>
-  {
-    if (e.target === overlay)
-    {
-      closeOverlay();
-    }
-  });
-
-  document.addEventListener("keydown", (e) =>
-  {
-    if (!overlay.hidden && e.key === "Escape")
-    {
-      closeOverlay();
-    }
-  });
 }
 
 function clamp(value, min, max)
@@ -292,7 +256,7 @@ function animateCardToStage(card)
   clone.style.height = first.height + "px";
   clone.style.margin = "0";
   clone.style.transform = "none";
-  clone.style.zIndex = "3000";
+  clone.style.zIndex = "900";
   clone.style.pointerEvents = "none";
 
   document.body.appendChild(clone);
@@ -306,6 +270,8 @@ function animateCardToStage(card)
   staged.style.bottom = "0";
   staged.style.transform = "none";
   staged.style.pointerEvents = "none";
+  staged.style.removeProperty("z-index");
+  staged.style.zIndex = "0";
   slot.appendChild(staged);
 
   // Now animate clone to the staged card's position

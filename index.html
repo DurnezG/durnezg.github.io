@@ -18,7 +18,7 @@
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projectStage">Projects</a></li>
                 <li><a href="#skills">Skills & Tools</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -32,7 +32,7 @@
         </div>
     </section>
 
-    <section class="projects" aria-label="Projects">
+    <!-- <section class="projects" aria-label="Projects"> -->
     <div class="card-hand" id="projectHand">
         <button
         class="tcg-card"
@@ -42,7 +42,7 @@
         data-languages="ASSEMBLY"
         data-framework="NES Hardware"
         data-desc="A Flappy Bird-inspired project for 4 players. Created for the nintendo NES using only the assembly language."
-        data-link="pages/floppy-birds.html"
+        data-link="pages/Games/floppybirds.html"
         >
         <div class="tcg-frame">
             <div class="tcg-top">
@@ -69,11 +69,11 @@
         class="tcg-card"
         type="button"
         data-title="Soup Showdown"
-        data-state="WIP"
+        data-state="FINISHED"
         data-languages="C#"
         data-framework="Unity"
-        data-desc="A game project currently in development."
-        data-link="pages/soup-showdown.html"
+        data-desc="My first fully self created game project in Unity, created with a group as part of DAE."
+        data-link="pages/Games/soupshowdown.html"
         >
         <div class="tcg-frame">
             <div class="tcg-top">
@@ -90,6 +90,37 @@
                 <span class="tcg-meniscus"></span>
             </div>
             <div class="tcg-sub">Unity</div>
+            </div>
+            <span class="tcg-shine" aria-hidden="true"></span>
+        </div>
+
+        </button>
+
+        <button
+        class="tcg-card"
+        type="button"
+        data-title="Cosmotion"
+        data-state="FINISHED"
+        data-languages="C#"
+        data-framework="Unity"
+        data-desc="Next project slot. Teaser content later."
+        data-link="pages/coming-soon.html"
+        >
+        <div class="tcg-frame">
+            <div class="tcg-top">
+            <div class="tcg-title">Cosmotion</div>
+            <div class="tcg-state" data-state-badge>FINISHED</div>
+            </div>
+
+            <div class="tcg-art">
+            <div class="tcg-art-placeholder">???</div>
+            </div>
+
+            <div class="tcg-bottom">
+            <div class="tcg-flask" data-state-flask aria-hidden="true">
+                <span class="tcg-meniscus"></span>
+            </div>
+            <div class="tcg-sub">Unity / Comming soon</div>
             </div>
             <span class="tcg-shine" aria-hidden="true"></span>
         </div>
@@ -127,7 +158,7 @@
 
         </button>
     </div>
-    </section>
+    <!-- </section> -->
 
     <section class="project-stage" id="projectStage" aria-label="Selected project">
         <div class="project-stage-card" id="stageCardSlot"></div>
@@ -418,6 +449,6 @@
 
     <script type="module" src="src/js/cards.js"></script>
     <script src="script.js"></script>
-    <script src="src/js/main.js"></script>
+    <script type="module" src="src/js/main.js"></script>
 </body>
 </html>

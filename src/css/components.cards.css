@@ -13,6 +13,11 @@
   --state-border: rgba(255,255,255,0.10);
 }
 
+header
+{
+  z-index: 1000;
+}
+
 .projects
 {
   position: relative;
@@ -25,11 +30,10 @@
   left: 50%;
   bottom: 18px;
   transform: translateX(-50%);
-  z-index: 50;
+  z-index: 1500;
 
   width: 0;
   height: 340px;
-  pointer-events: none;
 }
 
 .tcg-card
@@ -47,7 +51,6 @@
   padding: 0;
   cursor: pointer;
 
-  pointer-events: auto;
   transform-origin: 50% 120%;
 
   transform:
@@ -505,6 +508,15 @@
   margin: 32px auto;
   padding: 16px;
   scroll-margin-top: 110px;
+
+  position: relative;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.project-stage *
+{
+  pointer-events: auto;
 }
 
 .project-stage-card
@@ -593,6 +605,7 @@
   transform: translateX(-50%) translateY(250px);
   opacity: 0.95;
   transition: transform 260ms ease, opacity 260ms ease;
+  z-index: 1500;
 }
 
 .card-hand.is-selected .tcg-card

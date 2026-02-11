@@ -1,3 +1,3 @@
-import { initProjectCards } from "./cards.js";
+// import { initProjectCards } from "./cards.js";
 
-initProjectCards();
+// initProjectCards();
