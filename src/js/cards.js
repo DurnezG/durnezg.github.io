@@ -152,7 +152,8 @@ function layoutCardHand()
     card.style.setProperty("--pushX", "0px");
     card.style.setProperty("--pushR", "0deg");
 
-    card.style.zIndex = (1000 - Math.round(depth * 10)).toString();
+    // card.style.zIndex = (1000 - Math.round(depth * 10)).toString();
+    card.style.zIndex = (1000 + i).toString();
   }
 }
 
@@ -207,6 +208,8 @@ function clearHoverSeparation()
     card.style.setProperty("--pushX", "0px");
     card.style.setProperty("--pushR", "0deg");
   }
+
+  layoutCardHand();
 }
 
 function initHoverHand()
