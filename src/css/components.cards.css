@@ -25,19 +25,21 @@
   left: 50%;
   bottom: 18px;
   transform: translateX(-50%);
-  display: flex;
-  align-items: flex-end;
-  gap: 0px;
-  pointer-events: auto;
   z-index: 50;
+
+  width: 0;
+  height: 340px;
+  pointer-events: none;
 }
 
 .tcg-card
 {
-  --spread: 18deg;
-  --lift: 26px;
+  --lift: 28px;
 
-  position: relative;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
   width: 220px;
   height: 320px;
   border: 0;
@@ -45,16 +47,23 @@
   padding: 0;
   cursor: pointer;
 
+  pointer-events: auto;
   transform-origin: 50% 120%;
+
   transform:
-    translateX(calc((var(--i) - 1) * -18px))
-    rotate(calc((var(--i) - 1) * var(--spread)))
-    translateY(calc((abs(var(--i) - 1)) * 6px));
+    translateX(calc(-50% + var(--tx, 0px) + var(--pushX, 0px)))
+    rotate(calc(var(--rot, 0deg) + var(--pushR, 0deg)))
+    translateY(var(--ty, 0px));
 
   transition:
     transform 220ms ease,
     filter 220ms ease;
-  filter: saturate(0.95) contrast(0.95) brightness(0.98);
+}
+
+
+.tcg-card:first-child
+{
+  margin-left: 0;
 }
 
 .tcg-card:focus-visible
@@ -66,13 +75,12 @@
 .tcg-card:hover
 {
   transform:
-    translateX(calc((var(--i) - 1) * -24px))
-    rotate(calc((var(--i) - 1) * (var(--spread) * 0.65)))
-    translateY(calc(-1 * var(--lift)))
+    translateX(calc(-50% + var(--tx, 0px) + var(--pushX, 0px)))
+    rotate(calc(var(--rot, 0deg) * 0.50))
+    translateY(calc(var(--ty, 0px) - var(--lift)))
     scale(1.05);
 
-  filter: saturate(1.05) contrast(1.02) brightness(1.04);
-  z-index: 10;
+  z-index: 2000;
 }
 
 .tcg-frame
