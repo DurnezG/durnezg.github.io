@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="src/css/base.css">
     <link rel="stylesheet" href="src/css/components.cards.css">
+    <link rel="stylesheet" href="src/css/components.panels.css">
 </head>
 <body>
     <div id="nebula"></div>
@@ -137,8 +138,8 @@
         data-state="ONGOING"
         data-languages="C#"
         data-role="Solo Developer"
-        data-framework="Unity"
-        data-desc="Next project slot. Teaser content later."
+        data-framework="Unreal Engine"
+        data-desc="Next project slot."
         data-link="pages/coming-soon.html"
         >
         <div class="tcg-frame">
@@ -189,130 +190,131 @@
                 <button class="stage-secondary" id="stageClose" type="button" hidden>Back</button>
             </div>
         </div>
-
+        
     </section>
+    
+    <section class="about-me">
+        <div class="quest-panel">
+            <div class="panel-head">
+                <div class="panel-title">About me</div>
+                <div class="panel-sub">I'm a generalist programmer with a slight focus on networking in game development.</div>
+            </div>
 
-<!-- 
-    <div class="card-overlay" id="cardOverlay" hidden>
-    <div class="card-focus" role="dialog" aria-modal="true" aria-label="Project details">
-        <button class="card-close" type="button" id="cardClose" aria-label="Close">✕</button>
-
-        <div class="card-focus-header">
-        <div class="card-focus-title" id="focusTitle"></div>
-        <div class="card-focus-state" id="focusState"></div>
-        </div>
-
-        <div class="card-focus-desc" id="focusDesc"></div>
-
-        <div class="card-focus-actions">
-        <a class="card-cta" id="focusLink" href="#">Open project</a>
-        </div>
-    </div>
-    </div> -->
-
-
-    <!-- <section id="projects">
-        <h2>My Projects</h2>
-        <div class="projects-grid">
-
-            <a href="pages/floppybirds.html" class="project-card">
-                <div class="project-image">
-                    <img src="assets/Images/FloppyBirds.png" alt="Floppy Birds Project">
-                    <div class="status-badge finished">Finished</div>
+            <div class="panel-body">
+                <div class="quest-item">
+                    <div class="quest-label">Currently</div>
+                    <div class="quest-text">Finishing my studies + doing my end-of-study internship at Televic.</div>
                 </div>
-                <div class="project-info">
-                    <h3>Floppy Birds</h3>
-                    <p>Our take on a 4-player Flappy Bird game made entirely in assembly for the Nintendo NES hardware.</p>
-                </div>
-            </a>
 
-            <a href="pages/soupshowdown.html" class="project-card">
-                <div class="project-image">
-                    <img src="assets/Images/SoupShowdown.png" alt="Soup Showdown Project">
-                    <div class="status-badge finished">Finished</div>
-                </div>
-                <div class="project-info">
-                    <h3>Soup Showdown</h3>
-                    <p>My first group game project with students from other majors. A party game about making the best soup while sabotaging your opponents.</p>
-                </div>
-            </a>
 
-            <a href="#projects" class="project-card">
-                <div class="project-image">
-                    <img src="assets/Images/PlaceHolder.jpg"
-                        style="min-height: 50px;"
-                        alt="Placeholder Project">
-                    <div class="status-badge on-hold">Ongoing</div>
-                </div>
-                <div class="project-info">
-                    <h3>Coming Soon</h3>
-                    <p>...</p>
-                </div>
-            </a> -->
+                <div class="quest-item">
+                    <div class="quest-label">My interests</div>
 
-            <!-- Custom Engine Group -->
-            <!-- <div class="project-group">
-                <h3 class="group-title">My Custom Engine</h3>
-                <div class="project-cards">
-                    <p class="group-note">This engine is still a WIP (Work in Progress).</p>
-                    <p>This personal project is my attempt at creating a 3D game engine from scratch. While it's still in the early stages, my goal is to let it evolve over time. Learning how other game engines work under the hood and coming up with my own solutions. 
-                        I still have a long way to go and a lot to learn, but this is where I'll share my progress.</p>
-                    
-                    <a href="pages/Engine/sapphire.html" class="project-card related">
-                        <div class="project-image">
-                            <img src="assets/Images/PlaceHolder.jpg" alt="Editor">
-                            <div class="status-badge wip">WIP</div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Editor</h3>
-                            <p>A custom editor for creating and tweaking content inside the engine.</p>
-                        </div>
-                    </a>
-                    
-                    <a href="pages/Engine/emerald.html" class="project-card related">
-                        <div class="project-image">
-                            <img src="assets/Images/PlaceHolder.jpg" style="min-height: 50px;" alt="Engine">
-                            <div class="status-badge wip">WIP</div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Engine</h3>
-                            <p>The core of the custom engine, handling game logic and systems.</p>
-                        </div>
-                    </a>
-                    
-                    <a href="pages/Engine/ruby.html" class="project-card related">
-                        <div class="project-image">
-                            <img src="assets/Images/PlaceHolder.jpg" style="min-height: 50px;" alt="Renderer">
-                            <div class="status-badge wip">WIP</div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Renderer</h3>
-                            <p>The rendering module that powers the engine's visuals.</p>
-                        </div>
+                    <div class="quest-lines">
+                        <p>I like digging into game networking: state sync, prediction, and things that break under latency.</p>
+                        <p>I enjoy jumping between engines (Unity/Unreal/custom) and figuring out what`s going on under the hood.</p>
+                        <p>I care about game feel and polish—small feedback details that make interactions feel “right”.</p>
+                    </div>
+                </div>
+
+
+                <div class="quest-actions">
+                    <a class="quest-cta" href="assets/Files/Gilles_Durnez_CV.pdf" download>
+                        Download CV
                     </a>
                 </div>
             </div>
+        </div>
 
-            <!-- Electronics Group -->
+        <div class="inventory-panel">
+            <div class="panel-head">
+                <div class="panel-title">Skills & Tools</div>
+                <div class="panel-sub">List of programming languages, tools, and frameworks I've worked with.</div>
+            </div>
+
+            <div class="panel-head">
+                <div class="panel-title">Programming languages</div>
+                <div class="panel-sub"> </div>
+                <div class="inventory-grid">
+                    <div class="inv-item inv-epic">C++</div>
+                    <div class="inv-item inv-rare">C#</div>
+                    <div class="inv-item inv-common">C</div>
+                    <div class="inv-item inv-common">Python</div>
+                    <div class="inv-item inv-rare">Lua</div>
+                    <div class="inv-item inv-common">Web</div>
+                </div>
+            </div>
+            
+            <div class="panel-head">
+                <div class="panel-title">Game Engines</div>
+                <div class="panel-sub"> </div>
+                <div class="inventory-grid">
+                    <div class="inv-item inv-rare">Unity</div>
+                    <div class="inv-item inv-epic">Unreal Engine</div>
+                    <div class="inv-item inv-common">S&Box</div>
+                    <div class="inv-item inv-common">Roblox Studio</div>
+                    <div class="inv-item inv-epic">Custom Engines</div>
+                </div>
+            </div>
+
+            <div class="panel-head">
+                <div class="panel-title">Frameworks & API's</div>
+                <div class="panel-sub"> </div>
+                <div class="inventory-grid">
+                    <div class="inv-item inv-epic">Vulkan</div>
+                    <div class="inv-item inv-common">Direct X 11</div>
+                    <div class="inv-item inv-rare">Dear ImGui</div>
+                    <div class="inv-item inv-rare">SDL</div>
+                    <div class="inv-item inv-common">GLFW</div>
+                    <div class="inv-item inv-rare">GLM</div>
+                    <div class="inv-item inv-common">Angular</div>
+                </div>
+            </div>
+
+            <div class="panel-head">
+                <div class="panel-title">Version Control</div>
+                <div class="panel-sub"> </div>
+                <div class="inventory-grid">
+                    <div class="inv-item inv-rare">Perforce</div>
+                    <div class="inv-item inv-epic">Git</div>
+                    <div class="inv-item inv-common">SVN</div>
+                </div>
+            </div>
+
+            <div class="panel-head">
+                <div class="panel-title">3D Tools</div>
+                <div class="panel-sub"> </div>
+                <div class="inventory-grid">
+                    <div class="inv-item inv-epic">Blender</div>
+                    <div class="inv-item inv-rare">Solide Edge</div>
+                    <div class="inv-item inv-common">Siemens NX</div>
+                    <div class="inv-item inv-common">Fusion 360</div>
+                </div>
+            </div>
+
+            <div class="panel-title">Other Tools</div>
+            <div class="panel-sub"> </div>
+            <div class="inventory-grid">
+                <div class="inv-item inv-epic">Visual Studio</div>
+                <div class="inv-item inv-rare">VS Code</div>
+                <div class="inv-item inv-rare">CMake</div>
+                <div class="inv-item inv-rare">SQL</div>
+                <div class="inv-item inv-common">Photoshop</div>
+                <div class="inv-item inv-common">Eagle</div>
+                <div class="inv-item inv-common">Multisim</div>
+                <div class="inv-item inv-common">LTSpice</div>
+                <div class="inv-item inv-common">CubeMX</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
             <div class="project-group">
                 <h3 class="group-title">Electronics Projects</h3>
                 <div class="group-description">
                     <p class="group-note">These are my electronics-related projects.</p>
                 </div>
-
                 <p>To be added.</p>
-                <!-- <div class="project-cards">
-                    <a href="pages/Electronics/handProsthetic.html" class="project-card related2">
-                        <div class="project-image">
-                            <img src="assets/Images/editor.png" style="min-height: 50px;" alt="Electronics Project">
-                            <div class="status-badge inactive">Inactive</div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Small Hand Prosthetic</h3>
-                            <p>Built using Arduino.</p>
-                        </div>
-                    </a>
-                </div> -->
             </div>
         </div>
 
@@ -326,7 +328,9 @@
             <div class="other-project-card">Raspberry Pi-Based Human Movement Tracker</div>
             <div class="other-project-card">Pac-Man VR with Arcade DDR-Style Surface Controller</div>
         </div>
-    </section> -->
+    </section>
+
+
 
     <section id="skills">
         <h2>Skills & Tools</h2>
@@ -355,82 +359,6 @@
                     <div class="progress-row"><label>Writing:</label><progress value="30" max="100"></progress></div>
                     <div class="progress-row"><label>Understanding:</label><progress value="50" max="100"></progress></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Programming Languages -->
-        <div class="skill-category">
-            <h3>Programming Languages</h3>
-            <div class="skill-cards">
-                <div class="skill-card-color"><img src="https://devicon-website.vercel.app/api/c/original.svg" alt="C"><span>C</span></div>
-                <div class="skill-card-color"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++"><span>C++</span></div>
-                <div class="skill-card-color"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
-                <div class="skill-card-color"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
-                <div class="skill-card-color"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg" alt="Lua"><span>Lua</span></div>
-                <div class="skill-card-color"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML"><span>HTML/CSS/JS</span></div>
-            </div>
-        </div>
-
-        <!-- Game Engines -->
-        <div class="skill-category">
-            <h3>Game Engines</h3>
-            <div class="skill-cards">
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" alt="Unity"><span>Unity</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unrealengine.svg" alt="Unreal Engine"><span>Unreal Engine</span></div>
-                <div class="skill-card"><img src="https://www.svgrepo.com/show/500761/ampersand.svg" alt="S&Box"><span>S&Box</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/roblox.svg" alt="Roblox Studio"><span>Roblox Studio</span></div>
-            </div>
-        </div>
-
-        <!-- Frameworks / APIs / Libraries -->
-        <div class="skill-category">
-            <h3>Frameworks / APIs / Libraries</h3>
-            <div class="skill-cards">
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vulkan.svg" alt="Vulkan"><span>Vulkan</span></div>
-                <div class="skill-card"><img src="https://static.cdnlogo.com/logos/w/47/windows-xp.svg" alt="DirectX 11"><span>DirectX 11</span></div>
-                <div class="skill-card"><img src="https://www.svgrepo.com/show/340386/gui.svg" alt="Dear ImGui"><span>Dear ImGui</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sdl/sdl-plain.svg" alt="SDL"><span>SDL</span></div>
-                <div class="skill-card"><img src="https://www.svgrepo.com/show/533343/window.svg" alt="GLFW"><span>GLFW</span></div>
-                <div class="skill-card"><img src="https://www.svgrepo.com/show/382092/graph-infographic-data-matrix-element.svg" alt="GLM"><span>GLM</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-plain.svg" alt="Angular"><span>Angular</span></div>
-            </div>
-        </div>
-
-        <!-- Version Control -->
-        <div class="skill-category">
-            <h3>Version Control</h3>
-            <div class="skill-cards">
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" alt="Git"><span>Git</span><small>GitHub, Gitea, Bitbucket</small></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/perforce.svg" alt="Perforce"><span>Perforce</span><small>Helix Core</small></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/subversion.svg" alt="SVN"><span>SVN</span></div>
-            </div>
-        </div>
-
-        <!-- 3D Software -->
-        <div class="skill-category">
-            <h3>3D Software</h3>
-            <div class="skill-cards">
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/blender.svg" alt="Blender"><span>Blender</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/siemens.svg" alt="Solid Edge"><span>Solid Edge</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/siemens.svg" alt="Siemens NX"><span>Siemens NX</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg" alt="Fusion 360"><span>Fusion 360</span></div>
-            </div>
-        </div>
-
-        <!-- Other Tools -->
-        <div class="skill-category">
-            <h3>Other Tools</h3>
-            <div class="skill-cards">
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudio.svg" alt="Visual Studio"><span>Visual Studio</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg" alt="VS Code"><span>VS Code</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cmake.svg" alt="CMake"><span>CMake</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobephotoshop.svg" alt="Photoshop"><span>Photoshop</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg" alt="Eagle"><span>Eagle</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/multisim.svg" alt="Multisim"><span>Multisim</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/ltspice.svg" alt="LTSpice"><span>LTSpice</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/stmicroelectronics.svg" alt="CubeMX"><span>CubeMX</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" alt="SQL"><span>SQL</span></div>
-                <div class="skill-card"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg" alt="PHP"><span>PHP</span></div>
             </div>
         </div>
     </section>
