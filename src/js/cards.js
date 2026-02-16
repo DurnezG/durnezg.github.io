@@ -25,6 +25,7 @@ function initProjectCards()
   layoutCardHand();
   initHoverHand();
   initCardSelection();
+  initOtherProjectsTabs();
 
   window.addEventListener("resize", () =>
   {
@@ -368,6 +369,51 @@ function initCardSelection()
     });
   }
 }
+
+function initOtherProjectsTabs()
+{
+    const tabs = Array.from(document.querySelectorAll(".other-tab"));
+    const panels = Array.from(document.querySelectorAll(".other-panel"));
+
+    if (tabs.length === 0 || panels.length === 0)
+    {
+        return;
+    }
+
+    function setActive(name)
+    {
+        for (const tab of tabs)
+        {
+            const active = tab.dataset.tab === name;
+            tab.classList.toggle("is-active", active);
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+        }
+
+        for (const panel of panels)
+        {
+            const active = panel.dataset.panel === name;
+            panel.hidden = !active;
+        }
+    }
+
+    for (const tab of tabs)
+    {
+        tab.addEventListener("click", () =>
+        {
+            setActive(tab.dataset.tab);
+        });
+    }
+
+    setActive(tabs.find(t => t.classList.contains("is-active"))?.dataset.tab || tabs[0].dataset.tab);
+}
+
+document.addEventListener("DOMContentLoaded", () =>
+{
+    initOtherProjectsTabs();
+});
+
+
+
 
 
 

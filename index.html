@@ -338,27 +338,27 @@
             </div>
         </div>
     </section>
-    
 
-    <section>
-            <div class="project-group">
-                <h3 class="group-title">Electronics Projects</h3>
-                <div class="group-description">
-                    <p class="group-note">These are my electronics-related projects.</p>
-                </div>
-                <p>To be added.</p>
-            </div>
+    <section class="other-projects" aria-label="Other projects">
+        <div class="panel-head">
+            <div class="panel-title">Other projects</div>
+            <div class="panel-sub">Older work and smaller experiments</div>
         </div>
 
-        <h3 class="group-title">Other University Projects</h3>
+        <div class="other-tabs" role="tablist" aria-label="Other project categories">
+            <button class="other-tab is-active" type="button" data-tab="electronics" aria-selected="true">Electronics</button>
+            <button class="other-tab" type="button" data-tab="university" aria-selected="false">University</button>
+        </div>
 
-        <div class="other-projects-grid">
-            <div class="other-project-card">Software Raytracer</div>
-            <div class="other-project-card">Software Rasterizer</div>
-            <div class="other-project-card">2D Game Engine</div>
-            <div class="other-project-card">Live OBS Sports Game UI Synced with Scoreboard</div>
-            <div class="other-project-card">Raspberry Pi-Based Human Movement Tracker</div>
-            <div class="other-project-card">Pac-Man VR with Arcade DDR-Style Surface Controller</div>
+        <div class="other-panel" data-panel="electronics">
+            <div class="other-row">To be added.</div>
+        </div>
+            <div class="other-panel" data-panel="university" hidden>
+            <div class="other-row rare">Software Raytracer</div>
+            <div class="other-row rare">Software Rasterizer</div>
+            <div class="other-row rare">2D Game Engine</div>
+            <div class="other-row epic">Live OBS Sports Game UI Synced with Scoreboard</div>
+            <div class="other-row epic">Raspberry Pi-Based Human Movement Tracker</div>
         </div>
     </section>
 
