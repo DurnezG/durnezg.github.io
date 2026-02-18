@@ -159,12 +159,16 @@ nav ul li a:hover
     color: #00f0ff;
 }
 
-section 
+.section-full
 {
     min-height: 90vh;
+    justify-content: center;
+}
+
+section 
+{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 5rem 2rem;
     text-align: center;
@@ -624,18 +628,6 @@ SKILLS
 
 
 /* Contact section */
-
-#contact 
-{
-    text-align: center;
-    margin-top: 4rem;
-}
-
-#contact h2 
-{
-    color: #00f0ff;
-    margin-bottom: 2rem;
-}
 
 .contact-cards 
 {
