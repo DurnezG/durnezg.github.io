@@ -407,6 +407,27 @@ function initOtherProjectsTabs()
     setActive(tabs.find(t => t.classList.contains("is-active"))?.dataset.tab || tabs[0].dataset.tab);
 }
 
+document.querySelectorAll(".tcg-card .tcg-media").forEach((v) =>
+{
+    const card = v.closest(".tcg-card");
+    if (!card)
+    {
+        return;
+    }
+
+    card.addEventListener("mouseenter", () =>
+    {
+        v.play().catch(() => {});
+    });
+
+    card.addEventListener("mouseleave", () =>
+    {
+        v.pause();
+        v.currentTime = 0;
+    });
+});
+
+
 document.addEventListener("DOMContentLoaded", () =>
 {
     initOtherProjectsTabs();

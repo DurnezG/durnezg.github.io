@@ -41,7 +41,7 @@
     </header>
 
     <main class="content-card">
-        <center><img src="../../assets/Images/FloppyBirds.png" style="vertical-align: middle; max-width: 80vw;" alt="FloppyBirds Screenshot"></center>
+        <center><img src="../../assets/Images/FloppyBirds/FloppyBirds.png" style="vertical-align: middle; max-width: 80vw;" alt="FloppyBirds Screenshot"></center>
 
         
         <p>The code for this project can be found at: <a href="https://github.com/GeleArthur/Nes_Flappingbird">FloppyBirds</a></p>
@@ -60,10 +60,10 @@
                 To read the state of the buttons, we first need to tell the shift register to latch the current state. We do this by writing a 1 to memory address $4016, which stores the current input state.
                 We can then read the button states by reading from address $4016. Each read gives us one button's state, starting from the A button and ending with the Right button.
                 After reading all 8 buttons, we tell the shift register to stop outputting data by writing a 0 to $4016. This process is shown in the gif below.</p>
-            <img src="../../assets/Images/Input-Gif.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Input">
+            <img src="../../assets/Images/FloppyBirds/Input-Gif.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Input">
             <figcaption>Source: <a href="https://youtu.be/PwZEBE66an0?si=vPhMUtJmXgpj7Dv0">NES Architecture Explained (NesHacker)</a></figcaption>
             <p>Now we buffer this input. Since we receive it bit by bit, we also store it bit by bit. We shift each input bit into our register, and once all inputs are received, we store them for later use in our program.</p>
-            <img src="../../assets/Images/BufferingInput.png" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Buffering Input">
+            <img src="../../assets/Images/FloppyBirds/BufferingInput.png" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Buffering Input">
             <figcaption>Source: <a href="https://youtu.be/PwZEBE66an0?si=vPhMUtJmXgpj7Dv0">NES Architecture Explained (NesHacker)</a></figcaption>
             <p>Now that we can read input from one controller, we need to handle four controllers. For this, we use the Fourscore, which is a multitap for the NES.
                 The Fourscore works by multiplexing input from four controllers using four 4021 shift registers (2x2). When we latch the current state, it buffers all controller inputs.
@@ -81,7 +81,7 @@
             <h2>Gravity</h2>
             <p>Now that we could handle input, it was time to make the player move. We based movement on velocity and acceleration. When the player presses up, the velocity changes, but we also check if the player is allowed to move up based on the button’s previous state, forcing tapping instead of holding.
                 Each frame, a constant acceleration is applied to simulate gravity, making the player fall when no input is given. To prevent falling too fast, we also apply a terminal velocity limit.</p>
-            <img src="../../assets/Images/Gravity.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Gravity">
+            <img src="../../assets/Images/FloppyBirds/Gravity.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Gravity">
         </section>
 
         <section id="bg1">
@@ -91,18 +91,18 @@
                 Instead of moving the player, we move the background by changing its scroll values, stored in memory addresses $2005 and $2006.
                 As shown below, we change these scroll values each frame to create the illusion of movement. The NES can only handle two background images at once, so once one scrolls off-screen, we start overwriting it.
                 Because of the limited hardware speed, we can only update a few tiles per frame—about two columns. This made it an interesting challenge, which we continue exploring in Background Scrolling Part 2.</p>
-            <img src="../../assets/Images/ScrollingPart1.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Scrolling part 1">
+            <img src="../../assets/Images/FloppyBirds/ScrollingPart1.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Scrolling part 1">
         </section>
 
         <section id="collision">
             <h2>Collision</h2>
             <div style="display: flex; align-items: flex-start; gap: 15px; margin: 20px 0; padding-left: 40px;">
-                <img src="../../assets/Images/Collision2.png"  style="max-width: 200px; max-height: 400px;" alt="Collision line">
+                <img src="../../assets/Images/FloppyBirds/Collision2.png"  style="max-width: 200px; max-height: 400px;" alt="Collision line">
                 <p>It's time to start hitting things! We used a small trick to save on data and checks. To detect collisions, we aligned the map in 32-pixel groups. This means that when checking collisions on the X-axis, we only need to check one bit.
                     When scrolling, we test whether the scroll offset is a multiple of 32 by checking with 0b00100000. This tells us when an X-axis collision is possible, so we only need to check the Y-axis ranges.
                     To store this data, we added 8 bytes per map defining the top and bottom positions of the colliders. We assume each collider extends to the bottom of the screen. Each collider is defined by its top and bottom boundaries.</p>
             </div>
-            <img src="../../assets/Images/Collision.png" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Collision image">
+            <img src="../../assets/Images/FloppyBirds/Collision.png" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Collision image">
         </section>
 
         <section id="loop">
@@ -110,8 +110,8 @@
             <p>Things were starting to look good, but we still needed a few important features before it felt like a real game. We needed a proper game loop. Resetting the console manually after every round was annoying, so we made the game call the reset interrupt automatically when all players died.
                 This allowed the game to restart without any special loading logic. We also needed a way to transition from the title screen to the game, which we did when all players pressed A or player 1 pressed Start. This way, the game can be played with anywhere from 1 to 4 players.</p>
             <div style="display: flex; gap: 15px; margin: 20px 0; padding: 0 20px; max-width: 90vw;">
-                <img src="../../assets/Images/FloppyBirds.png" alt="Title Screen" style="width: 50%; height: auto; border-radius: 8px;">
-                <img src="../../assets/Images/IngameScreenshot.png" alt="Ingame Screenshot" style="width: 50%; height: auto; border-radius: 8px;">
+                <img src="../../assets/Images/FloppyBirds/FloppyBirds.png" alt="Title Screen" style="width: 50%; height: auto; border-radius: 8px;">
+                <img src="../../assets/Images/FloppyBirds/IngameScreenshot.png" alt="Ingame Screenshot" style="width: 50%; height: auto; border-radius: 8px;">
             </div>
         </section>
 
@@ -120,7 +120,7 @@
             <p>This is where the visuals also started to get reworked. Some code had to be adjusted for this. We made each player sprite 2x2 tiles large. Since there can be 4 players and a maximum of 8 sprites per line, we used all of them to make players more visible.
                 We also added some background details for visual appeal. To save memory, we reused tile data while changing only the color palette. This gave us clouds and bushes with minimal extra cost.
                 To create these visuals, we used a program called NEXXT Studio.</p>
-            <img src="../../assets/Images/UpdatingTheVisuals.png"  style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Updating the Visuals">
+            <img src="../../assets/Images/FloppyBirds/UpdatingTheVisuals.png"  style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="Updating the Visuals">
         </section>
 
         <section id="audio">
@@ -128,7 +128,7 @@
             <p>A game isn't complete without sound, so Bram created some quick background tunes using FamiStudio. Here's a short snippet of the result.</p>
             <div style="text-align: center; margin: 20px 0;">
                 <video style="max-width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.5);" controls>
-                    <source src="../../assets/Video/AddingAudio.mp4" type="video/mp4">
+                    <source src="../../assets/Video/FloppyBirds/AddingAudio.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -141,7 +141,7 @@
                 We had just enough time to update two columns of tiles each frame. Managing this communication with the PPU took effort, but it worked well in the end.
                 To switch between maps, we used pointers to the tile tables, but since addresses are 2 bytes and registers are only 1 byte, this required some careful handling.
                 In the end, we managed to add 5 different maps that are selected randomly, except for the start screen which always loads first for a clean transition into gameplay.</p>
-            <img src="../../assets/Images/BackgroundPart2.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="background part 2">
+            <img src="../../assets/Images/FloppyBirds/BackgroundPart2.gif" style="width: 40vw; min-width: 400px; max-width: 90vw;" alt="background part 2">
         </section>
 
         <section id="score">
@@ -154,7 +154,7 @@
         <section id="final">
             <h2>The Final Result</h2>
             <video style="max-width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.5);" controls>
-                <source src="../../assets/Video/FloppyBirds.mp4" type="video/mp4">
+                <source src="../../assets/Video/FloppyBirds/FloppyBirds.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </section>
