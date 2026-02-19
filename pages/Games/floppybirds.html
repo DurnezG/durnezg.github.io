@@ -5,40 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Durnez Gilles | FloppyBirds</title>
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../src/css/base.css">
+    <link rel="stylesheet" href="../../src/css/components.panels.css">
     <link rel="stylesheet" href="floppybirds.css">
 </head>
 <body>
     <div id="nebula"></div>
     <canvas id="particles"></canvas>
 
-    <header>
-        <nav>
-            <h1>Durnez Gilles</h1>
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
-                <li class="toc-dropdown">
-                    <button id="toc-button">Contents</button>
-                    <div class="toc-dropdown-content" id="toc-dropdown">
-                        <ul>
-                            <li><a href="#foreword">Foreword</a></li>
-                            <li><a href="#input">Reading Input & The Fourscore</a></li>
-                            <li><a href="#refactoring">Refactoring the Codebase</a></li>
-                            <li><a href="#gravity">Gravity</a></li>
-                            <li><a href="#bg1">Background Scrolling Part 1</a></li>
-                            <li><a href="#collision">Collision</a></li>
-                            <li><a href="#loop">The Game Loop</a></li>
-                            <li><a href="#visuals">Updating the Visuals</a></li>
-                            <li><a href="#audio">Audio</a></li>
-                            <li><a href="#bg2">Background Scrolling Part 2</a></li>
-                            <li><a href="#final">The Final Result</a></li>
-                            <li><a href="#score">Adding Score</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+    <header class="site-header" id="home">
+        <div class="site-header-inner">
+            <a class="site-brand" href="https://durnezg.github.io/">
+                Gilles Durnez
+            </a>
+
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="https://durnezg.github.io/#projects">Projects</a>
+                <a href="https://durnezg.github.io/#skills">Skills</a>
+                <a href="https://durnezg.github.io/#contact">Contact</a>
+            </nav>
+        </div>
     </header>
+
 
     <main class="content-card">
         <center><img src="../../assets/Images/FloppyBirds/FloppyBirds.png" style="vertical-align: middle; max-width: 80vw;" alt="FloppyBirds Screenshot"></center>
@@ -169,10 +157,22 @@
         </section>
     </main>
     
-    <footer>
-        <p>&copy; Durnez Gilles.</p>
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-left">
+                <div class="footer-title">Thanks for visiting.</div>
+                <div class="footer-sub">© <span id="footerYear"></span> Gilles Durnez • Programmer</div>
+            </div>
+
+            <div class="footer-right">
+                <a href="#home" class="footer-link">Back to top</a>
+                <a href="https://github.com/DurnezG" class="footer-link" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="#contact" class="footer-link">Contact</a>
+            </div>
+        </div>
     </footer>
 
+    <script type="module" src="src/js/main.js"></script>
     <script src="../../script.js"></script>
     <script src="floppybirds.js"></script>
 </body>
