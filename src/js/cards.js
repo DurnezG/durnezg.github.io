@@ -26,6 +26,7 @@ function initProjectCards()
   initHoverHand();
   initCardSelection();
   initOtherProjectsTabs();
+  initHandToggle();
 
   window.addEventListener("resize", () =>
   {
@@ -406,6 +407,32 @@ function initOtherProjectsTabs()
 
     setActive(tabs.find(t => t.classList.contains("is-active"))?.dataset.tab || tabs[0].dataset.tab);
 }
+
+function initHandToggle()
+{
+  const hand = document.getElementById("projectHand");
+  const toggle = document.getElementById("handToggle");
+
+  if (!hand || !toggle)
+  {
+    return;
+  }
+
+  function setHidden(isHidden)
+  {
+    document.body.classList.toggle("cards-hidden", isHidden);
+    toggle.setAttribute("aria-label", isHidden ? "Show project cards" : "Hide project cards");
+  }
+
+  toggle.addEventListener("click", () =>
+  {
+    const isHidden = document.body.classList.contains("cards-hidden");
+    setHidden(!isHidden);
+  });
+
+  setHidden(false);
+}
+
 
 document.querySelectorAll(".tcg-card .tcg-media").forEach((v) =>
 {
