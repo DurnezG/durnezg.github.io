@@ -13,18 +13,20 @@
     <div id="nebula"></div>
     <canvas id="particles"></canvas>
 
-    <header>
-        <nav>
-            <h1>Durnez Gilles</h1>
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projectStage">Projects</a></li>
-                <li><a href="#skills">Skills & Tools</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="#home">
+                Gilles Durnez
+            </a>
+
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="#projectStage">Projects</a>
+                <a href="#about-me">About Me</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
+
 
     <section id="home" class="home-hero" aria-label="Home">
         <div class="hero-backdrop" aria-hidden="true"></div>
@@ -42,7 +44,11 @@
             </p>
 
             <p class="hero-sub">
-                Explore projects I worked on by selecting a card. Pick one to inspect, then dive deeper when you're ready.
+                Explore projects I worked on by selecting a card. Pick one to inspect, then dive deeper when you're ready. You can hide them by clicking the arrow below.
+            </p>
+
+            <p class="hero-sub">
+                Programmer | Digital astist | Elektronics enthusiast
             </p>
 
             <div class="hero-actions">
@@ -454,12 +460,24 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Durnez Gilles</p>
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-left">
+                <div class="footer-title">Thanks for visiting.</div>
+                <div class="footer-sub">© <span id="footerYear"></span> Gilles Durnez • Programmer</div>
+            </div>
+
+            <div class="footer-right">
+                <a href="#home" class="footer-link">Back to top</a>
+                <a href="https://github.com/DurnezG" class="footer-link" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="#contact" class="footer-link">Contact</a>
+            </div>
+        </div>
     </footer>
 
+
     <script type="module" src="src/js/cards.js"></script>
-    <script src="script.js"></script>
     <script type="module" src="src/js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

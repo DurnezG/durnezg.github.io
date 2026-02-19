@@ -43,7 +43,7 @@ body, html
     scroll-behavior: smooth;
 }
 
-header nav 
+/* header nav 
 {
     flex-wrap: wrap;
     position: fixed;
@@ -83,7 +83,7 @@ header li a
 header li a:hover 
 {
   color: #00bfff;
-}
+} */
 
 .nav-links {
   list-style: none;
