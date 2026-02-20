@@ -43,6 +43,26 @@ body, html
     scroll-behavior: smooth;
 }
 
+body.coming-soon-page
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.coming-soon-page main.content-card
+{
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 110px 16px 32px 16px;
+}
+
+body.coming-soon-page .site-footer
+{
+    margin-top: auto;
+}
+
 
 @media (max-width: 768px) 
 {
